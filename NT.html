@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Ngọc Trâm 💖</title>
+
+<!-- Font cao cấp -->
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&family=Great+Vibes&display=swap" rel="stylesheet">
+
+<style>
+/* 🌌 NỀN VÀ BỐ CỤC */
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    overflow: hidden;
+    background: radial-gradient(circle at top, #2b0033 0%, #0c0010 90%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Quicksand', sans-serif;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* ✨ HIỆU ỨNG SAO NỀN */
+.star {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.8;
+    animation: twinkle 2.5s infinite ease-in-out;
+}
+@keyframes twinkle {
+    0%, 100% { opacity: 0.3; transform: scale(1);}
+    50% { opacity: 1; transform: scale(1.4);}
+}
+
+/* 💫 CHỮ CHÚC MỪNG */
+h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 70px;
+    color: #ffeaf2;
+    margin: 50px 0 10px;
+    text-shadow:
+        0 0 10px rgba(255,100,150,0.7),
+        0 0 25px rgba(255,100,150,0.4),
+        0 0 60px rgba(255,80,130,0.2);
+    animation: fadeIn 2.5s ease;
+    position: relative;
+    z-index: 2; /* 🔼 chữ nổi trên tim */
+}
+h2 {
+    font-size: 22px;
+    font-weight: 500;
+    color: #ffe6f0;
+    text-shadow: 0 0 12px rgba(255,150,200,0.4);
+    margin-bottom: 30px;
+    animation: fadeIn 3s ease;
+    position: relative;
+    z-index: 2;
+}
+
+/* 🎀 NỘI DUNG THƯ CHÚC */
+.message {
+    font-size: 18px;
+    width: 60%;
+    line-height: 1.7;
+    color: #ffdce9;
+    text-shadow: 0 0 12px rgba(255,150,190,0.2);
+    animation: fadeIn 3.5s ease;
+    position: relative;
+    z-index: 2;
+}
+@keyframes fadeIn {
+    from {opacity: 0; transform: translateY(20px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
+/* 🌸 TRÁI TIM NHỎ BAY */
+.floating-heart {
+    position: absolute;
+    width: 20px;
+    height: 18px;
+    background: rgba(255,130,160,0.3);
+    transform: rotate(-45deg);
+    border-radius: 4px;
+    animation: floatUp 6s linear infinite;
+}
+.floating-heart::before,
+.floating-heart::after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 18px;
+    background: rgba(255,130,160,0.3);
+    border-radius: 50%;
+}
+.floating-heart::before { top: -10px; left: 0; }
+.floating-heart::after { left: 10px; top: 0; }
+
+@keyframes floatUp {
+    0% { transform: translateY(0) rotate(-45deg) scale(1); opacity: 0.6; }
+    100% { transform: translateY(-120vh) rotate(-45deg) scale(1.2); opacity: 0; }
+}
+
+/* 💖 TRÁI TIM NỀN (ở dưới chữ) */
+.heart {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle at center, #c55b8b 0%, #c55b8b 100%);
+    transform: translate(-50%, -50%) rotate(-45deg) scale(1);
+    border-radius: 20px;
+    opacity: 0.25;
+    animation: pulse 3s ease-in-out infinite;
+    z-index: 0; /* 🔽 nằm dưới chữ */
+}
+
+/* Hai nửa tròn tạo phần trên của tim */
+.heart::before,
+.heart::after {
+    content: "";
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle at center, #c55b8b 0%, #c55b8b 100%);
+    border-radius: 50%;
+}
+
+.heart::before {
+    top: -75px;
+    left: 0;
+}
+
+.heart::after {
+    left: 75px;
+    top: 0;
+}
+
+/* Hiệu ứng đập nhẹ */
+@keyframes pulse {
+    0%, 100% { transform: translate(-50%, -50%) rotate(-45deg) scale(1); opacity: 0.25; }
+    50% { transform: translate(-50%, -50%) rotate(-45deg) scale(1.1); opacity: 0.35; }
+}
+
+/* 🔘 NÚT MUTE / UNMUTE */
+#mute-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-size: 16px;
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 25px;
+    padding: 10px 20px;
+    cursor: pointer;
+    backdrop-filter: blur(8px);
+    transition: all 0.4s ease;
+    opacity: 0.6;
+    z-index: 5;
+}
+#mute-btn:hover {
+    background: rgba(255,255,255,0.25);
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+/* 🔘 ẨN NÚT KHI KHÔNG TƯƠNG TÁC */
+#mute-btn.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+audio {
+    display: none;
+}
+</style>
+</head>
+<body>
+
+<!-- Nhạc nền -->
+<audio id="bg-music" loop>
+    <source src="Nếu Như Có Hai Trái Tim.mp3" type="audio/mpeg">
+</audio>
+
+<!-- 🌟 Hiệu ứng sao -->
+<script>
+for (let i = 0; i < 100; i++) {
+    const star = document.createElement('div');
+    star.classList.add('star');
+    const size = Math.random() * 2.5;
+    star.style.width = size + 'px';
+    star.style.height = size + 'px';
+    star.style.left = Math.random() * 100 + 'vw';
+    star.style.top = Math.random() * 100 + 'vh';
+    star.style.animationDelay = Math.random() * 3 + 's';
+    document.body.appendChild(star);
+}
+</script>
+
+<!-- 💖 Nội dung chính -->
+<div class="heart"></div>
+<h1>Happy Birthday <br> Nguyễn Ngọc Trâm 💖</h1>
+<h2>Chúc em có một ngày thật đặc biệt, trọn vẹn và đáng nhớ!</h2>
+
+<div class="message">
+    Hôm nay là ngày dành riêng cho em, cô gái tuyệt vời, dịu dàng và tràn đầy yêu thương.  
+    Mong rằng mỗi nụ cười của em sẽ tỏa sáng như những vì sao,  
+    và mọi ước mơ của em sẽ dần trở thành sự thật. Tôi yêu tất cả mọi thứ thuộc về em! Thương nhớ em rất nhiều.  
+    Cảm ơn vì đã hiện diện và khiến thế giới này trở nên đẹp hơn 💕 Moahhhhhhhh ❤️
+</div>
+
+<!-- 💕 Tim nhỏ bay -->
+<script>
+function createFloatingHeart() {
+    const heart = document.createElement('div');
+    heart.classList.add('floating-heart');
+    heart.style.left = Math.random() * 100 + 'vw';
+    heart.style.animationDuration = 4 + Math.random() * 4 + 's';
+    heart.style.opacity = 0.2 + Math.random() * 0.5;
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 7000);
+}
+setInterval(createFloatingHeart, 400);
+</script>
+
+<!-- 🎵 Nhạc tự phát khi click + nút điều khiển -->
+<script>
+const music = document.getElementById('bg-music');
+document.body.addEventListener('click', function once() {
+    music.play();
+    document.body.removeEventListener('click', once);
+});
+
+showButtonTemporarily(); // Hiển thị lúc đầu
+document.addEventListener('mousemove', showButtonTemporarily);
+document.addEventListener('touchstart', showButtonTemporarily);
+</script>
+
+</body>
+</html>
