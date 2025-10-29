@@ -5,17 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Happy Birthday Ngọc Trâm 💖</title>
 
-<body>
-    <h1></h1>
-
-    <!-- Nội dung trước đây của bạn -->
-
-    <h2></h2>
-    <audio controls>
-        <source src="https://raw.githubusercontent.com/huyentrandoann14-dev/Selah-Duong/main/audio/.NgocTram/selahduong/neu-nhu-co-hai-trai-tim.mp3" type="audio/mpeg">
-        Trình duyệt của bạn không hỗ trợ thẻ audio.
-    </audio>
-</body>
 <!-- Font cao cấp -->
 <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&family=Great+Vibes&display=swap" rel="stylesheet">
 
@@ -24,8 +13,7 @@
 body {
     margin: 0;
     padding: 0;
-    height: 100vh;
-    overflow: hidden;
+    min-height: 100vh;
     background: radial-gradient(circle at top, #2b0033 0%, #0c0010 90%);
     display: flex;
     flex-direction: column;
@@ -33,7 +21,7 @@ body {
     align-items: center;
     font-family: 'Quicksand', sans-serif;
     color: #fff;
-    cursor: pointer;
+    overflow-x: hidden;
 }
 
 /* ✨ HIỆU ỨNG SAO NỀN */
@@ -52,42 +40,36 @@ body {
 /* 💫 CHỮ CHÚC MỪNG */
 h1 {
     font-family: 'Great Vibes', cursive;
-    font-size: 70px;
+    font-size: clamp(2rem, 8vw, 4rem);
     color: #ffeaf2;
-    margin: 50px 0 10px;
+    margin: 30px 0 10px;
+    text-align: center;
     text-shadow:
         0 0 10px rgba(255,100,150,0.7),
         0 0 25px rgba(255,100,150,0.4),
         0 0 60px rgba(255,80,130,0.2);
-    animation: fadeIn 2.5s ease;
-    position: relative;
-    z-index: 2; /* 🔼 chữ nổi trên tim */
+    z-index: 2;
 }
 h2 {
-    font-size: 22px;
+    font-size: clamp(1rem, 4vw, 1.5rem);
     font-weight: 500;
     color: #ffe6f0;
+    text-align: center;
     text-shadow: 0 0 12px rgba(255,150,200,0.4);
-    margin-bottom: 30px;
-    animation: fadeIn 3s ease;
-    position: relative;
+    margin-bottom: 20px;
     z-index: 2;
 }
 
 /* 🎀 NỘI DUNG THƯ CHÚC */
 .message {
-    font-size: 18px;
-    width: 60%;
+    font-size: clamp(0.9rem, 3vw, 1.2rem);
+    width: 90%;
+    max-width: 600px;
     line-height: 1.7;
     color: #ffdce9;
+    text-align: center;
     text-shadow: 0 0 12px rgba(255,150,190,0.2);
-    animation: fadeIn 3.5s ease;
-    position: relative;
     z-index: 2;
-}
-@keyframes fadeIn {
-    from {opacity: 0; transform: translateY(20px);}
-    to {opacity: 1; transform: translateY(0);}
 }
 
 /* 🌸 TRÁI TIM NHỎ BAY */
@@ -117,7 +99,7 @@ h2 {
     100% { transform: translateY(-120vh) rotate(-45deg) scale(1.2); opacity: 0; }
 }
 
-/* 💖 TRÁI TIM NỀN (ở dưới chữ) */
+/* 💖 TRÁI TIM NỀN */
 .heart {
     position: absolute;
     top: 50%;
@@ -129,10 +111,8 @@ h2 {
     border-radius: 20px;
     opacity: 0.25;
     animation: pulse 3s ease-in-out infinite;
-    z-index: 0; /* 🔽 nằm dưới chữ */
+    z-index: 0;
 }
-
-/* Hai nửa tròn tạo phần trên của tim */
 .heart::before,
 .heart::after {
     content: "";
@@ -142,18 +122,8 @@ h2 {
     background: radial-gradient(circle at center, #c55b8b 0%, #c55b8b 100%);
     border-radius: 50%;
 }
-
-.heart::before {
-    top: -75px;
-    left: 0;
-}
-
-.heart::after {
-    left: 75px;
-    top: 0;
-}
-
-/* Hiệu ứng đập nhẹ */
+.heart::before { top: -75px; left: 0; }
+.heart::after { left: 75px; top: 0; }
 @keyframes pulse {
     0%, 100% { transform: translate(-50%, -50%) rotate(-45deg) scale(1); opacity: 0.25; }
     50% { transform: translate(-50%, -50%) rotate(-45deg) scale(1.1); opacity: 0.35; }
@@ -162,8 +132,8 @@ h2 {
 /* 🔘 NÚT MUTE / UNMUTE */
 #mute-btn {
     position: fixed;
-    bottom: 30px;
-    right: 30px;
+    bottom: 20px;
+    right: 20px;
     background: rgba(255, 255, 255, 0.1);
     color: #fff;
     font-size: 16px;
@@ -181,23 +151,20 @@ h2 {
     opacity: 1;
     transform: scale(1.05);
 }
-
-/* 🔘 ẨN NÚT KHI KHÔNG TƯƠNG TÁC */
 #mute-btn.hidden {
     opacity: 0;
     pointer-events: none;
 }
 
-audio {
-    display: none;
-}
+audio { display: none; }
+
 </style>
 </head>
 <body>
 
 <!-- Nhạc nền -->
 <audio id="bg-music" loop>
-    <source src="neu-nhu-co-hai-trai-tim.mp3" type="audio/mpeg">
+    <source src="https://raw.githubusercontent.com/huyentrandoann14-dev/Selah-Duong/main/audio/.NgocTram/selahduong/neu-nhu-co-hai-trai-tim.mp3" type="audio/mpeg">
 </audio>
 
 <!-- 🌟 Hiệu ứng sao -->
@@ -217,7 +184,7 @@ for (let i = 0; i < 100; i++) {
 
 <!-- 💖 Nội dung chính -->
 <div class="heart"></div>
-<h1>Happy Birthday <br> Ngọc Trâm 💖</h1>
+<h1>Happy Birthday <br> Nguyễn Ngọc Trâm 💖</h1>
 <h2>Chúc em có một ngày thật đặc biệt, trọn vẹn và đáng nhớ!</h2>
 
 <div class="message">
@@ -248,13 +215,7 @@ document.body.addEventListener('click', function once() {
     music.play();
     document.body.removeEventListener('click', once);
 });
-
-showButtonTemporarily(); // Hiển thị lúc đầu
-document.addEventListener('mousemove', showButtonTemporarily);
-document.addEventListener('touchstart', showButtonTemporarily);
 </script>
 
 </body>
 </html>
-
-
